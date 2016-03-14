@@ -18,7 +18,7 @@ class ViewController: UIViewController {
         
         //******** creating label programmatically*******//
         
-        var label = UILabel(frame: CGRectMake(120, 80, 150, 100));
+        let label = UILabel(frame: CGRectMake(120, 80, 150, 100));
         //label.center = CGPointMake(160, 284);
         label.textAlignment = NSTextAlignment.Center;
         label.text = " ^Click the above button to move to next view controller <<< uiview";
@@ -34,7 +34,7 @@ class ViewController: UIViewController {
         
         //******** creating button programmatically*******//
         
-        var button=UIButton(frame: CGRectMake(20, 20, 280, 40));
+        let button=UIButton(frame: CGRectMake(20, 20, self.view.frame.width-40, 40));
         button.backgroundColor=UIColor.blueColor();
         button.setTitle("Ravi Kumar", forState: .Normal);
         button.setTitleColor(UIColor.yellowColor(), forState: .Normal);
@@ -43,22 +43,22 @@ class ViewController: UIViewController {
         button.layer.cornerRadius=2;
         //*** button action***//
         button.addTarget(self, action: "pressme", forControlEvents: .TouchUpInside);
-        button.titleLabel.textAlignment=NSTextAlignment.Center;
+        button.titleLabel!.textAlignment=NSTextAlignment.Center;
         self.view.addSubview(button);
         
         
         //******** creating UIView programmatically *********//
         
-        var view=UIView(frame: CGRectMake(20, 80, 100, 100));
+        let view=UIView(frame: CGRectMake(20, 80, 100, 100));
         view.backgroundColor=UIColor.yellowColor();
-        view.layer.borderColor=CGColorCreateGenericRGB(255, 255, 255, 1);
+        view.layer.borderColor=UIColor.blackColor().CGColor;
         view.layer.cornerRadius=25;
         view.layer.borderWidth=6;
         self.view.addSubview(view);
         
         //******** creating textfield programmatically********//
         
-        var myTextField = UITextField(frame: CGRect(x: 20, y: 200, width: 280.00, height: 40.00));
+        let myTextField = UITextField(frame: CGRect(x: 20, y: 200, width: self.view.frame.width-40, height: 40.00));
         myTextField.backgroundColor = UIColor.grayColor();
         myTextField.placeholder="  Enter here";
         //myTextField.text = "    Enter here";
@@ -68,7 +68,7 @@ class ViewController: UIViewController {
         
         //******** creating UIslider ***********//
         
-        var slider=UISlider(frame:CGRectMake(20, 260, 280, 20));
+        let slider=UISlider(frame:CGRectMake(20, 260, self.view.frame.width-40, 20));
         slider.minimumValue = 0;
         slider.maximumValue = 100;
         slider.continuous = false;
@@ -80,7 +80,7 @@ class ViewController: UIViewController {
         
         //********** creating UISwitch programmatically *******//
         
-        var customSwitch=UISwitch(frame:CGRectMake(150, 300, 50, 30));
+        let customSwitch=UISwitch(frame:CGRectMake(150, 300, 50, 30));
         customSwitch.setOn(true, animated: false);
         customSwitch.addTarget(self, action: "switchValueDidChange:", forControlEvents: .ValueChanged);
         self.view.addSubview(customSwitch);
@@ -89,7 +89,7 @@ class ViewController: UIViewController {
         
         //********** creating UITextView programmatically *******//
         
-        var textview=UITextView(frame:CGRectMake(20, 330, 280, 60));
+        let textview=UITextView(frame:CGRectMake(20, 330, self.view.frame.width-40, 60));
         textview.scrollEnabled=true;
         textview.backgroundColor=UIColor.grayColor();
         textview.textColor=UIColor.blueColor();
@@ -100,8 +100,8 @@ class ViewController: UIViewController {
         
         //********** creating UIImageView Programmatically******//
         
-        var imageView = UIImageView(frame: CGRectMake(20, 400, 100, 150));
-        var image = UIImage(named: "image.jpg");
+        let imageView = UIImageView(frame: CGRectMake(20, 400, 100, 150));
+        let image = UIImage(named: "image.jpg");
         imageView.image = image;
         self.view.addSubview(imageView);
         
@@ -120,11 +120,11 @@ class ViewController: UIViewController {
         
         //******** navigation from one view controller to another *******//
        
-        self.navigationController.pushViewController(secondViewController(), animated: false);
+        self.navigationController!.pushViewController(secondViewController(), animated: false);
         
         //******** creating UIalertview programmatically*******//
         
-        var alertView=UIAlertView();
+        let alertView=UIAlertView();
         alertView.title="RK";
         alertView.addButtonWithTitle("OK");
         alertView.message="Now you are in second view controller";
